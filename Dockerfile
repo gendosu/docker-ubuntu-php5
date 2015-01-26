@@ -11,6 +11,9 @@ RUN apt-get install -y git libssl-dev libreadline-dev imagemagick libmagick++-de
 
 RUN apt-get -y install nginx php5 php5-cli php5-fpm
 
+ADD supervisord/nginx.conf /etc/supervisor/conf.d/nginx.conf
+ADD supervisord/php5-fpm.conf /etc/supervisor/conf.d/php5-fpm.conf
+
 EXPOSE 22 80
 
 CMD ["/usr/bin/supervisord"]
